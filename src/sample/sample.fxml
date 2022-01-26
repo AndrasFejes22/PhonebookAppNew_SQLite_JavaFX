@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="base_pane" fx:id="base_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ListView id="myListView" fx:id="myListView" editable="true" layoutX="50.0" layoutY="95.0" prefHeight="300.0" prefWidth="550.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </ListView>
+      <Label id="myLabel" fx:id="myLabel" alignment="CENTER" layoutX="52.0" layoutY="44.0" prefHeight="36.0" prefWidth="550.0" text="List of Users">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button id="flushButton" fx:id="flushButton" layoutX="521.0" layoutY="50.0" mnemonicParsing="false" onAction="#click_lflushButton" prefHeight="25.0" prefWidth="81.0" text="List/Update" />
+      <TextField id="myTextField" fx:id="myTextField" layoutX="98.0" layoutY="50.0" prefHeight="25.0" prefWidth="112.0" />
+      <Label layoutX="50.0" layoutY="50.0" prefHeight="25.0" prefWidth="48.0" text="Search:" />
+      <Button id="newUser" fx:id="newUser" layoutX="48.0" layoutY="410.0" mnemonicParsing="false" onAction="#click_newUser" prefHeight="25.0" prefWidth="144.0" text="Add new user" />
+      <Pane id="newUserPane" fx:id="newUserPane" layoutX="48.0" layoutY="455.0" prefHeight="250.0" prefWidth="426.0" visible="false">
+         <children>
+            <Label layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="112.0" text="Name" />
+            <Label layoutX="21.0" layoutY="78.0" prefHeight="17.0" prefWidth="112.0" text="phone number" />
+            <Label layoutX="21.0" layoutY="145.0" text="e-mail" />
+            <TextField id="textName" fx:id="textName" layoutX="14.0" layoutY="40.0" onAction="#click_labelName" />
+            <TextField id="textPhone" fx:id="textPhone" layoutX="14.0" layoutY="109.0" onAction="#click_labelPhone" />
+            <TextField id="textEmail" fx:id="textEmail" layoutX="14.0" layoutY="170.0" onDragDetected="#click_labelEmail" />
+            <Button id="addUser" fx:id="addUser" layoutX="323.0" layoutY="66.0" mnemonicParsing="false" onAction="#click_addUser" prefHeight="25.0" prefWidth="81.0" text="Add" />
+            <Button id="delete" fx:id="delete" layoutX="323.0" layoutY="28.0" mnemonicParsing="false" onAction="#click_delete" prefHeight="25.0" prefWidth="81.0" text="Delete" />
+            <Button id="Btn_cancel" fx:id="Btn_cancel" layoutX="323.0" layoutY="113.0" mnemonicParsing="false" onAction="#click_BtnCancel" prefHeight="25.0" prefWidth="81.0" text="Cancel" />
+            <Button id="close_newUserPane" fx:id="close_newUserPane" layoutX="323.0" layoutY="170.0" mnemonicParsing="false" onAction="#click_close_newUserPane" prefHeight="25.0" prefWidth="81.0" text="Close" />
+         </children>
+      </Pane>
+      <Button id="deleteUser" fx:id="deleteUser" layoutX="209.0" layoutY="410.0" mnemonicParsing="false" onAction="#click_deleteUser" prefHeight="25.0" prefWidth="144.0" text="Delete user" />
+      <Pane id="newUserPane" fx:id="edit_user" layoutX="48.0" layoutY="455.0" prefHeight="292.0" prefWidth="426.0">
+         <children>
+            <Label layoutX="12.0" layoutY="73.0" prefHeight="17.0" prefWidth="112.0" text="new Name" />
+            <Label layoutX="12.0" layoutY="136.0" prefHeight="17.0" prefWidth="112.0" text="new phone number" />
+            <Label layoutX="14.0" layoutY="202.0" text="new email" />
+            <TextField id="edit_name" fx:id="edit_name" layoutX="14.0" layoutY="103.0" onAction="#click_labelName" />
+            <TextField id="edit_phone" fx:id="edit_phone" layoutX="14.0" layoutY="170.0" onAction="#click_labelPhone" />
+            <TextField id="edit_email" fx:id="edit_email" layoutX="14.0" layoutY="232.0" onDragDetected="#click_labelEmail" />
+            <Button id="btn_add_editedUser" fx:id="btn_add_edited_user" layoutX="292.0" layoutY="170.0" mnemonicParsing="false" onAction="#click_edit_user" prefHeight="25.0" prefWidth="112.0" text="Save and Add" />
+            <TextField id="old_name" fx:id="old_name" layoutX="14.0" layoutY="40.0" />
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="65.0" text="Name" />
+            <Button id="Btn_closeEdit" fx:id="Btn_close_edit" layoutX="308.0" layoutY="232.0" mnemonicParsing="false" onAction="#click_BtnCloseEdit" prefHeight="25.0" prefWidth="81.0" text="Close" />
+            <Button id="Btn_Edit" fx:id="Btn_Edit" layoutX="175.0" layoutY="40.0" mnemonicParsing="false" onAction="#click_BtnEdit" prefHeight="25.0" prefWidth="65.0" text="Edit" />
+            <Button id="Btn_Cancel" fx:id="Btn_Cancel" layoutX="313.0" layoutY="103.0" mnemonicParsing="false" onAction="#click_Btn_EditCancel" prefHeight="25.0" prefWidth="71.0" text="Cancel" />
+         </children>
+      </Pane>
+      <Button id="Btn_edit_user" fx:id="Btn_edit_user" layoutX="370.0" layoutY="410.0" mnemonicParsing="false" onAction="#click_editUser" prefHeight="25.0" prefWidth="144.0" text="Edit User" />
+      <Button id="Btn_GO" fx:id="Btn_GO" layoutX="219.0" layoutY="50.0" mnemonicParsing="false" onAction="#click_BtnGO" prefHeight="25.0" prefWidth="48.0" text="Go!" />
+   </children>
+</Pane>
