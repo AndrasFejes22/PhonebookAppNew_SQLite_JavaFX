@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.sql.*;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -91,17 +92,24 @@ public class Controller implements Initializable {
         myListView.getItems().clear();
 
         String sql = "select * from users where name like ? or email like ?;";
+        //String sql2 = "select * from users where name like 'bud';";
 
         String input = myTextField.getText();
+        System.out.println("input: "+input);
 
         PreparedStatement ps = DbConnection.connect().prepareStatement(sql);
 
-        ps.setString(1, input + "%");
-        ps.setString(2, input + "%");
+        //ps.setString(1, input + "%");//suffix-match: ps.setString(1, "%" + notes);
+        ps.setString(1, "%"+ input + "%"); //or a global match: ps.setString(1, "%" + notes + "%");
+        //ps.setString(2, input + "%");
+        ps.setString(2, "%"+ input+ "%"); //or a global match: ps.setString(1, "%" + notes + "%");
+        System.out.println("input2: "+input);
+
+        //uj
 
 
         ResultSet rs = ps.executeQuery();
-        if (myTextField.getText() != ""){
+        if (!Objects.equals(myTextField.getText(), " ")){ // "" or " "?
             while (rs.next()) {
                 String id = rs.getString(1);
                 String name2 = rs.getString(2);
@@ -109,7 +117,7 @@ public class Controller implements Initializable {
                 String email = rs.getString(4);
 
                 System.out.println(id + "  | " + name2 + " | " + phone_number + " | " + email);
-                String listOut = id + "    " + name2 + "  |  " + phone_number + "  |  " + email;
+                String listOut = id + "  |  " + name2 + "  |  " + phone_number + "  |  " + email;
 
 
 
