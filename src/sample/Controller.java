@@ -99,7 +99,7 @@ public class Controller implements Initializable {
 
         PreparedStatement ps = DbConnection.connect().prepareStatement(sql);
 
-        //ps.setString(1, input + "%");//suffix-match: ps.setString(1, "%" + notes);
+        //ps.setString(1, input + "%");//suffix - match: ps.setString(1, "%" + notes);
         ps.setString(1, "%"+ input + "%"); //or a global match: ps.setString(1, "%" + notes + "%");
         //ps.setString(2, input + "%");
         ps.setString(2, "%"+ input+ "%"); //or a global match: ps.setString(1, "%" + notes + "%");
